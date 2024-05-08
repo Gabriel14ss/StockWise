@@ -12,6 +12,9 @@
         android:theme="@style/Theme.TFG_StockWise"
         tools:targetApi="31">
         <activity
+            android:name=".MainActivityDavid"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity2"
             android:exported="false" />
         <activity
