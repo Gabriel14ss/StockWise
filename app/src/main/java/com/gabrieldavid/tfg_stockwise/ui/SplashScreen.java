@@ -50,7 +50,7 @@ public class SplashScreen extends AppCompatActivity {
             @Override
             public void run() {
                 // Aqui indicamos que vaya del Splash al login
-                Intent intent = new Intent(SplashScreen.this, MainActivity.class); // SPLASHSCREEN --> LOGIN
+                Intent intent = new Intent(SplashScreen.this, RegistroActivity.class); // SPLASHSCREEN --> LOGIN
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);//creamos bandera
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);//limpiamos para no poder volver
                 startActivity(intent); // Con esto vamos al siguiente activity indicando con la variable intent

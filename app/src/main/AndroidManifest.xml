@@ -11,6 +11,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Gestiona1"
         tools:targetApi="31">
+
+        <activity
+            android:name=".ui.LoginActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Gestiona" /> <!-- activity Registro -->
+        <activity
+            android:name=".ui.RegistroActivity"
+            android:exported="true"
+            android:parentActivityName=".ui.LoginActivity"
+            android:theme="@style/Theme.Gestiona" />
         <activity
             android:name=".ui.MainActivity"
             android:exported="true"/>
