@@ -12,6 +12,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
+import android.view.Menu;
 
 import com.gabrieldavid.tfg_stockwise.R;
 import com.google.android.material.navigation.NavigationView;
@@ -36,9 +37,7 @@ public class MainActivity extends AppCompatActivity {
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
 
-
-
-// Configuración del ActionBarDrawerToggle
+        // Configuración del ActionBarDrawerToggle
         actionBarDrawerToggle = new ActionBarDrawerToggle(
                 this, drawerLayout, R.string.open, R.string.close);
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
@@ -93,6 +92,30 @@ public class MainActivity extends AppCompatActivity {
             drawerLayout.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
+        }
+    }
+
+    // Inflar el menú en la ActionBar
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    // Manejar los clics en los elementos del menú de opciones
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_drawer:
+                // Abrir el DrawerLayout cuando se hace clic en el icono de hamburguesa
+                if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+                    drawerLayout.closeDrawer(GravityCompat.START);
+                } else {
+                    drawerLayout.openDrawer(GravityCompat.START);
+                }
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
     }
 }
