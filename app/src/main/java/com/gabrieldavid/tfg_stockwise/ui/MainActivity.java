@@ -55,20 +55,20 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.nav_pedidos:
                         startActivity(new Intent(MainActivity.this, Pedido.class));
-                        showToast("Pedidos seleccionados");
+                        showToast("Pedidos seleccionado");
                         break;
                     case R.id.nav_empleados:
                         startActivity(new Intent(MainActivity.this, Empleado.class));
-                        showToast("Ajustes seleccionados");
+                        showToast("Empleados seleccionado");
                         break;
                     case R.id.nav_contacto:
                         navController.navigate(R.id.nav_contacto);
-                        showToast("Ajustes seleccionados");
+                        showToast("Contactos seleccionado");
                         break;
                     case R.id.nav_logout:
                         LoginActivity.auth.signOut();
                         navController.navigate(R.id.nav_logout);
-                        showToast("Ajustes seleccionados");
+                        showToast("LogOut seleccionado");
                         break;
                 }
 
