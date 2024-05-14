@@ -36,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
 
+
+
 // Configuración del ActionBarDrawerToggle
         actionBarDrawerToggle = new ActionBarDrawerToggle(
                 this, drawerLayout, R.string.open, R.string.close);
