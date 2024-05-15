@@ -15,8 +15,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.gabrieldavid.tfg_stockwise.MainActivity;
 import com.gabrieldavid.tfg_stockwise.ui.LoginActivity;
-import com.gabrieldavid.tfg_stockwise.ui.MainActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
