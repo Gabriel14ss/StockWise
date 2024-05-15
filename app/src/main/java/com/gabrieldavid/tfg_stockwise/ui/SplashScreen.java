@@ -24,7 +24,7 @@ public class SplashScreen extends AppCompatActivity {
         AnimationABienvenida(true);
 
         // Implementar animacion (LOGO PRINCIPAL)
-        ImageView mLogo = (ImageView) findViewById(R.id.imgLogo);
+        ImageView mLogo = findViewById(R.id.imgLogo);
         // Se define una variable de tipo ImageView referenciada al id logo que es el LOGO PRINCIPAL
         Animation myanim = AnimationUtils.loadAnimation(this, R.anim.fadein);
         // Se define una variable Animaton y que cargue mi animacion llamada FADEIN
