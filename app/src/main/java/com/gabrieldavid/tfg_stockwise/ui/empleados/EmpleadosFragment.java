@@ -1,4 +1,4 @@
-package com.gabrieldavid.tfg_stockwise.ui.ui.empleados;
+package com.gabrieldavid.tfg_stockwise.ui.empleados;
 
 import android.app.ProgressDialog;
 import android.content.Intent;

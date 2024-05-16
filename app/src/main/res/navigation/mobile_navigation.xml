@@ -28,7 +28,7 @@
     <!-- fragment nav_empleados -->
     <fragment
         android:id="@+id/nav_empleados"
-        android:name="com.gabrieldavid.tfg_stockwise.ui.ui.empleados.EmpleadosFragment"
+        android:name="com.gabrieldavid.tfg_stockwise.ui.empleados.EmpleadosFragment"
         android:label="@string/menu_empleados"
         tools:layout="@layout/fragment_empleados">
         <action

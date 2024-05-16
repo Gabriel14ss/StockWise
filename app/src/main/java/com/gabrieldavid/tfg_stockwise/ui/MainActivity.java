@@ -1,120 +1,121 @@
 package com.gabrieldavid.tfg_stockwise.ui;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.navigation.NavController;
-
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
-import android.widget.Toast;
+import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.TextView;
+import android.widget.Toolbar;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
 
 import com.gabrieldavid.tfg_stockwise.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
-import com.gabrieldavid.tfg_stockwise.ui.empleado.Empleado;
-import com.gabrieldavid.tfg_stockwise.ui.pedido.Pedido;
 
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-public class MainActivity extends AppCompatActivity {
-
-    private DrawerLayout drawerLayout;
-    private ActionBarDrawerToggle actionBarDrawerToggle;
+    // Declaramos variables
+    private AppBarConfiguration mAppBarConfiguration;
+    private TextView tvEmailUsuario, tvNombreEmpresa;
+    private Intent intent;
     private NavigationView navigationView;
-    private NavController navController;
+    private DrawerLayout drawer;
+    public FloatingActionButton fab;
+    Toolbar toolbar;
 
+    // Metodo onCreate
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Referencias a los elementos del layout
-        drawerLayout = findViewById(R.id.drawer_layout);
+        drawer = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
 
-        // Configuración del ActionBarDrawerToggle
-        actionBarDrawerToggle = new ActionBarDrawerToggle(
-                this, drawerLayout, R.string.open, R.string.close);
-        drawerLayout.addDrawerListener(actionBarDrawerToggle);
-        actionBarDrawerToggle.syncState();
-
-        // Configuración del NavigationItemSelectedListener para manejar eventos de selección de elementos del menú
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                // Manejar eventos de selección de elementos del menú
-                switch (menuItem.getItemId()) {
-                    case R.id.nav_home:
-                        startActivity(new Intent(MainActivity.this, MainActivity.class));
-                        showToast("Inicio seleccionado");
-                        break;
-                    case R.id.nav_pedidos:
-                        startActivity(new Intent(MainActivity.this, Pedido.class));
-                        showToast("Pedidos seleccionado");
-                        break;
-                    case R.id.nav_empleados:
-                        startActivity(new Intent(MainActivity.this, Empleado.class));
-                        showToast("Empleados seleccionado");
-                        break;
-                    case R.id.nav_contacto:
-                        navController.navigate(R.id.nav_contacto);
-                        showToast("Contactos seleccionado");
-                        break;
-                    case R.id.nav_logout:
-                        LoginActivity.auth.signOut();
-                        navController.navigate(R.id.nav_logout);
-                        showToast("LogOut seleccionado");
-                        break;
-                }
+        androidx.appcompat.widget.Toolbar toolbar = findViewById(R.id.toolbar);
+        fab = findViewById(R.id.fab);
 
 
-                // Cerrar el Navigation Drawer después de la selección del elemento
-                drawerLayout.closeDrawer(GravityCompat.START);
-                return true;
-            }
-        });
+
+        // Passing each menu ID as a set of Ids because each
+        // menu should be considered as top level destinations.
+        mAppBarConfiguration = new AppBarConfiguration.Builder(
+                R.id.nav_home, R.id.nav_pedidos, R.id.nav_empleados, R.id.nav_logout)
+                .setDrawerLayout(drawer)
+                .build();
+
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
+        NavigationUI.setupWithNavController(navigationView, navController);
+        navigationView.setNavigationItemSelectedListener(this);
+        intent = getIntent();
     }
 
-    // Método para mostrar un Toast
-    private void showToast(String message) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
-    }
-
-    // Método para manejar el evento de pulsación del botón de retroceso
     @Override
     public void onBackPressed() {
-        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-            drawerLayout.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
+        super.onBackPressed();
+        Log.i("loge", "atrass");
     }
 
-    // Inflar el menú en la ActionBar
+    // Metodo para modificar el NavHeader
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
+        tvEmailUsuario = findViewById(R.id.tvEmailUsuario);
+        tvNombreEmpresa = findViewById(R.id.tvNombreEmpresa);
+
+        // Mostramos el nombre de la empresa y el correo en el menu draw
+        tvEmailUsuario.setText(LoginActivity.user.getEmail());
+        String nombreEmpresa = LoginActivity.user.getDisplayName();
+        if (nombreEmpresa != null && !nombreEmpresa.equals("")) {
+            tvNombreEmpresa.setText(nombreEmpresa);
+        }
         return true;
     }
 
-    // Manejar los clics en los elementos del menú de opciones
+    //Metodo para el navigation controle los fragment
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onSupportNavigateUp() {
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        return NavigationUI.navigateUp(navController, mAppBarConfiguration)
+                || super.onSupportNavigateUp();
+    }
+
+    // Opciones menú desplegable
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.menu_drawer:
-                // Abrir el DrawerLayout cuando se hace clic en el icono de hamburguesa
-                if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-                    drawerLayout.closeDrawer(GravityCompat.START);
-                } else {
-                    drawerLayout.openDrawer(GravityCompat.START);
-                }
+            case R.id.nav_home:
+                Navigation.findNavController(this, R.id.nav_host_fragment).navigate(R.id.nav_home);
+                drawer.closeDrawers();
                 return true;
-            default:
-                return super.onOptionsItemSelected(item);
+            case R.id.nav_pedidos:
+                Navigation.findNavController(this, R.id.nav_host_fragment).navigate(R.id.nav_pedidos);
+                drawer.closeDrawers();
+                return true;
+            case R.id.nav_empleados:
+                Navigation.findNavController(this, R.id.nav_host_fragment).navigate(R.id.nav_empleados);
+                drawer.closeDrawers();
+                return true;
+            case R.id.nav_logout:
+                LoginActivity.auth.signOut();
+                intent = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(intent);
+                finish();
+                return true;
         }
+        return false;
     }
 }
