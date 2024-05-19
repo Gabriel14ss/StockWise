@@ -63,6 +63,10 @@ public class EmpleadosFragment extends Fragment implements MyAdapterEmpleados.On
         layoutManager = new LinearLayoutManager(container.getContext(), RecyclerView.VERTICAL, false);
         rvEmpleados.setLayoutManager(layoutManager);
 
+        // Asignar un adaptador vacío inicialmente
+        adapter = new MyAdapterEmpleados(new ArrayList<>(), EmpleadosFragment.this);
+        rvEmpleados.setAdapter(adapter);
+
         cargarEmpleados();
         cerrarActivity();
 
@@ -83,14 +87,13 @@ public class EmpleadosFragment extends Fragment implements MyAdapterEmpleados.On
         reff.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                empleadosList.removeAll(empleadosList);
+                empleadosList.clear();
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     Empleado empleado = ds.getValue(Empleado.class);
                     empleadosList.add(empleado);
-                    // Log.i("loge", empleado.toString());
                 }
                 adapter = new MyAdapterEmpleados(empleadosList, EmpleadosFragment.this);
-                rvEmpleados.setAdapter(adapter);
+                rvEmpleados.setAdapter(adapter); // Asignar el adaptador con los nuevos datos
                 progressDialog.dismiss();
                 swipeRefreshLayout.setRefreshing(false);
                 if (empleadosList.size() == 0) {

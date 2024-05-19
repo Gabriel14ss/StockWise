@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "754376921743",
+    "firebase_url": "https://basededatos-stockwise-default-rtdb.europe-west1.firebasedatabase.app/",
     "project_id": "basededatos-stockwise",
     "storage_bucket": "basededatos-stockwise.appspot.com"
   },
