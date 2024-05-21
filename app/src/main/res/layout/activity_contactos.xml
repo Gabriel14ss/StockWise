@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blancoApp"
+    android:theme="@style/Theme.Gestiona"
+    tools:context=".ContactosActivity">
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/Theme.Gestiona">
+
+            <!-- Guideline izquierda -->
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/lineaIzd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.05" />
+
+            <!-- Guideline derecha -->
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/lineaDerecha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.95" />
+            <!-- ImageView logo -->
+
+            <ImageView
+                android:id="@+id/imgViewLogo"
+                android:layout_width="109dp"
+                android:layout_height="109dp"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/logo2"
+                app:layout_constraintEnd_toStartOf="@+id/lineaDerecha"
+                app:layout_constraintStart_toStartOf="@+id/lineaIzd"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/btDatosEmpresa"
+                style="@style/botonVerde"
+                _toStartOf="@+id/lineaDerecha"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="70dp"
+                android:text="Compartir datos empresa"
+                app:layout_constraintEnd_toStartOf="@+id/lineaDerecha"
+                app:layout_constraintStart_toStartOf="@+id/lineaIzd"
+                app:layout_constraintTop_toBottomOf="@+id/imgViewLogo"
+                tools:ignore="TextContrastCheck"></Button>
+
+
+            <TextView
+                android:id="@+id/tvCompartirApp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/aeonikbold"
+                android:gravity="start"
+                android:text="STOCK WISE "
+                android:textColor="@color/Teal"
+                android:textSize="30sp"
+                app:layout_constraintEnd_toEndOf="@+id/imgViewLogo"
+                app:layout_constraintStart_toStartOf="@+id/imgViewLogo"
+                app:layout_constraintTop_toBottomOf="@+id/imgViewLogo"
+                tools:ignore="TextContrastCheck" />
+
+            <!-- ImageButton compartir Play Store -->
+            <ImageButton
+                android:id="@+id/btCompartirAppLink"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="40dp"
+                android:backgroundTint="@color/white"
+                android:src="@mipmap/ic_playstore_foreground"
+                app:layout_constraintStart_toStartOf="@+id/lineaIzd"
+                app:layout_constraintTop_toBottomOf="@+id/btDatosEmpresa"
+                tools:ignore="SpeakableTextPresentCheck">
+            </ImageButton>
+
+            <!-- ImageButton mostrar QR -->
+            <ImageButton
+                android:id="@+id/btCompartirAppQR"
+                style="@style/botonVerde"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:src="@mipmap/ic_qr_foreground"
+                app:layout_constraintBottom_toBottomOf="@+id/btCompartirAppLink"
+                app:layout_constraintEnd_toStartOf="@+id/lineaDerecha"
+                app:layout_constraintHorizontal_bias="0.567"
+                app:layout_constraintStart_toEndOf="@+id/btCompartirAppLink"
+                app:layout_constraintTop_toTopOf="@+id/btCompartirAppLink"
+                app:layout_constraintVertical_bias="0.0"
+                tools:ignore="SpeakableTextPresentCheck">
+            </ImageButton>
+
+            <TextView
+                android:id="@+id/tvEmailUsuario"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintEnd_toStartOf="@+id/lineaIzd"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"></TextView>
+
+            <TextView
+                android:id="@+id/tvNombreEmpresa"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintEnd_toStartOf="@+id/lineaIzd"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"></TextView>
+
+            <TextView
+                android:id="@+id/tvDesarrolladores"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:fontFamily="@font/aeonikbold"
+                android:gravity="start"
+                android:text="Desarrolladores"
+                android:textColor="@color/Teal"
+                android:textSize="30sp"
+                app:layout_constraintStart_toStartOf="@+id/lineaIzd"
+                app:layout_constraintTop_toBottomOf="@+id/btCompartirAppLink"
+                tools:ignore="TextContrastCheck" />
+
+            <LinearLayout
+                android:id="@+id/lt1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvDesarrolladores">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cadViewEmpleado1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="5dp"
+                    app:cardUseCompatPadding="true"
+                    app:layout_constraintTop_toBottomOf="parent">
+
+                    <!-- LinearLayout empleado horizontal -->
+                    <LinearLayout
+                        android:id="@+id/horizontalLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <!-- ImageView foto empleado -->
+                        <ImageView
+                            android:id="@+id/imgDavid"
+                            android:layout_width="125dp"
+                            android:layout_height="125dp"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginEnd="5dp"
+                            android:layout_marginBottom="5dp"
+                            tools:srcCompat="@drawable/david" />
+
+                        <!-- LinearLayout empleado vertical -->
+                        <LinearLayout
+                            android:id="@+id/verticalLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="5dp"
+                            android:orientation="vertical"
+                            android:padding="@dimen/cardview_compat_inset_shadow">
+
+                            <!-- TextView DNI empleado -->
+                            <TextView
+                                android:id="@+id/tvNombreDavid"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="5dp"
+                                android:text="David Guzmán "
+                                android:textSize="20dp" />
+
+                            <!-- TextView direccion empleado -->
+                            <TextView
+                                android:id="@+id/tvCorreoDavid"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="5dp"
+                                android:text="dav.guz@hotmail.com"
+                                android:textSize="15dp" />
+
+                            <!-- TextView nombre empleado -->
+                            <TextView
+                                android:id="@+id/tvGithubDavid"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:autoLink="web"
+                                android:linksClickable="true"
+                                android:padding="@dimen/cardview_compat_inset_shadow"
+                                android:paddingStart="5dp"
+                                android:text="https://github.com/DavidGuzmanAntona"
+                                android:textColor="#0E63E6"
+                                android:textSize="20dp"
+                                tools:ignore="TextContrastCheck" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lt2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="50dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lt1">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cadViewEmpleado1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="5dp"
+                    app:cardUseCompatPadding="true"
+                    app:layout_constraintTop_toBottomOf="parent">
+
+                    <!-- LinearLayout empleado horizontal -->
+                    <LinearLayout
+                        android:id="@+id/horizontalLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <!-- ImageView foto empleado -->
+                        <ImageView
+                            android:id="@+id/imgGabriel"
+                            android:layout_width="125dp"
+                            android:layout_height="125dp"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginEnd="5dp"
+                            android:layout_marginBottom="5dp"
+                            tools:srcCompat="@drawable/gabriel" />
+
+                        <!-- LinearLayout empleado vertical -->
+                        <LinearLayout
+                            android:id="@+id/verticalLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="5dp"
+                            android:orientation="vertical"
+                            android:padding="@dimen/cardview_compat_inset_shadow">
+
+                            <!-- TextView DNI empleado -->
+                            <TextView
+                                android:id="@+id/tvNombreGabriel"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="5dp"
+                                android:text="Gabriel Sánchez"
+                                android:textSize="20dp" />
+
+                            <!-- TextView direccion empleado -->
+                            <TextView
+                                android:id="@+id/tvCorreoGabriel"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="5dp"
+                                android:text="gabriel01sansan@gmail.com"
+                                android:textSize="15dp" />
+
+                            <!-- TextView nombre empleado -->
+                            <TextView
+                                android:id="@+id/tvGithubGabriel"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:autoLink="web"
+                                android:linksClickable="true"
+                                android:padding="@dimen/cardview_compat_inset_shadow"
+                                android:paddingStart="5dp"
+                                android:text="https://github.com/Gabriel14ss"
+                                android:textColor="#0E63E6"
+                                android:textSize="20dp"
+                                tools:ignore="TextContrastCheck" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".producto.AddProductoActivity">
+
+    <ScrollView
+        android:id="@+id/scrollView3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/Theme.Gestiona">
+
+            <!-- Guideline izquierda -->
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/lineaIzd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.05" />
+
+            <!-- Guideline derecha -->
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/lineaDerecha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.95" />
+
+            <!-- TextView datos producto -->
+            <TextView
+                android:id="@+id/tv_title_addProducto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="20dp"
+                android:text="@string/tv_title_addProducto"
+                android:textColor="@color/Teal"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/lineaDerecha"
+                app:layout_constraintStart_toStartOf="@+id/lineaIzd"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- ImageView foto producto -->
+            <ImageView
+                android:id="@+id/imagenProducto"
+                android:layout_width="170dp"
+                android:layout_height="170dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="11dp"
+                app:layout_constraintStart_toStartOf="@+id/lineaIzd"
+                app:layout_constraintTop_toBottomOf="@+id/tv_title_addProducto"
+                app:srcCompat="@drawable/cajaeditable"
+                tools:ignore="VectorDrawableCompat" />
+
+            <!-- TextInputLayout Nombre producto -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tv_nombreProducto"
+                style="@style/textInputLayout"
+                app:layout_constraintEnd_toStartOf="@+id/lineaDerecha"
+                app:layout_constraintStart_toStartOf="@+id/lineaIzd"
+                app:layout_constraintTop_toBottomOf="@+id/imagenProducto">
+                <!-- EditText producto -->
+                <EditText
+                    android:id="@+id/etNombreProducto"
+                    style="@style/editText"
+                    android:hint="Nombre"
+                    android:inputType="textEmailAddress"
+                    android:maxLines="1"
+                    tools:ignore="SpeakableTextPresentCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- TextInputLayout Referencia -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tv_ReferenciaProducto"
+                style="@style/textInputLayout"
+                app:layout_constraintEnd_toStartOf="@+id/lineaDerecha"
+                app:layout_constraintStart_toStartOf="@+id/lineaIzd"
+                app:layout_constraintTop_toBottomOf="@+id/tv_nombreProducto">
+                <!-- EditText producto -->
+                <EditText
+                    android:id="@+id/etReferenciaProducto"
+                    style="@style/editText"
+                    android:hint="Referencia"
+                    android:inputType="textPersonName"
+                    android:maxLines="1"
+                    tools:ignore="SpeakableTextPresentCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- TextInputLayout Descripcion -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tv_DescripcionProducto"
+                style="@style/textInputLayout"
+                app:layout_constraintEnd_toStartOf="@+id/lineaDerecha"
+                app:layout_constraintStart_toStartOf="@+id/lineaIzd"
+                app:layout_constraintTop_toBottomOf="@+id/tv_ReferenciaProducto">
+                <!-- EditText producto -->
+                <EditText
+                    android:id="@+id/etDescripcionProducto"
+                    style="@style/editText"
+                    android:hint="Descripción"
+                    android:inputType="text|textMultiLine"
+                    tools:ignore="SpeakableTextPresentCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- TextInputLayout Stock -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tv_stockProducto"
+                style="@style/textInputLayout"
+                app:layout_constraintEnd_toStartOf="@+id/lineaDerecha"
+                app:layout_constraintStart_toStartOf="@+id/lineaIzd"
+                app:layout_constraintTop_toBottomOf="@+id/tv_DescripcionProducto">
+                <!-- EditText stock producto -->
+                <EditText
+                    android:id="@+id/etStockProducto"
+                    style="@style/editText"
+                    android:hint="Stock"
+                    android:inputType="number"
+                    tools:ignore="SpeakableTextPresentCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- TextInputLayout Precio Coste -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tv_precioProducto"
+                style="@style/textInputLayout"
+                app:layout_constraintEnd_toStartOf="@+id/lineaDerecha"
+                app:layout_constraintStart_toStartOf="@+id/lineaIzd"
+                app:layout_constraintTop_toBottomOf="@+id/tv_stockProducto">
+                <!-- EditText producto -->
+                <EditText
+                    android:id="@+id/etPrecioProducto"
+                    style="@style/editText"
+                    android:hint="Precio Coste"
+                    android:inputType="numberDecimal"
+                    tools:ignore="SpeakableTextPresentCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- TextInputLayout Precio Venta -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tv_precioVentaProducto"
+                style="@style/textInputLayout"
+                app:layout_constraintEnd_toStartOf="@+id/lineaDerecha"
+                app:layout_constraintStart_toStartOf="@+id/lineaIzd"
+                app:layout_constraintTop_toBottomOf="@+id/tv_precioProducto">
+                <!-- EditText producto -->
+                <EditText
+                    android:id="@+id/etPrecioVentaProducto"
+                    style="@style/editText"
+                    android:hint="Precio Venta"
+                    android:inputType="numberDecimal"
+                    tools:ignore="SpeakableTextPresentCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Boton aceptar -->
+            <Button
+                android:id="@+id/btnAceptarProducto"
+                style="@style/botonVerde"
+                android:layout_marginTop="30dp"
+                android:text="@string/btnAceptar"
+                app:layout_constraintEnd_toStartOf="@+id/lineaDerecha"
+                app:layout_constraintStart_toStartOf="@+id/lineaIzd"
+                app:layout_constraintTop_toBottomOf="@id/tv_precioVentaProducto" />
+
+            <!-- Boton cancelar -->
+            <Button
+                android:id="@+id/btnCancelarProducto"
+                style="@style/botonInverso"
+                android:text="@string/btnCancelar"
+
+                app:layout_constraintEnd_toStartOf="@+id/lineaDerecha"
+                app:layout_constraintStart_toStartOf="@+id/lineaIzd"
+                app:layout_constraintTop_toBottomOf="@id/btnAceptarProducto" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                app:layout_constraintEnd_toStartOf="@+id/lineaDerecha"
+                app:layout_constraintStart_toStartOf="@+id/lineaIzd"
+                app:layout_constraintTop_toBottomOf="@id/btnCancelarProducto"></TextView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
