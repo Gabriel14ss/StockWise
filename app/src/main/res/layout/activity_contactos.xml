@@ -51,7 +51,6 @@
             <Button
                 android:id="@+id/btDatosEmpresa"
                 style="@style/botonVerde"
-                _toStartOf="@+id/lineaDerecha"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="70dp"
@@ -154,7 +153,7 @@
 
                     <!-- LinearLayout empleado horizontal -->
                     <LinearLayout
-                        android:id="@+id/horizontalLayout"
+                        android:id="@+id/horizontalLayout1"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="horizontal">
@@ -173,7 +172,7 @@
 
                         <!-- LinearLayout empleado vertical -->
                         <LinearLayout
-                            android:id="@+id/verticalLayout"
+                            android:id="@+id/verticalLayout1"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_marginLeft="5dp"
@@ -229,7 +228,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/lt1">
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/cadViewEmpleado1"
+                    android:id="@+id/cadViewEmpleado2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:cardCornerRadius="8dp"
@@ -239,7 +238,7 @@
 
                     <!-- LinearLayout empleado horizontal -->
                     <LinearLayout
-                        android:id="@+id/horizontalLayout"
+                        android:id="@+id/horizontalLayout2"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="horizontal">
@@ -258,7 +257,7 @@
 
                         <!-- LinearLayout empleado vertical -->
                         <LinearLayout
-                            android:id="@+id/verticalLayout"
+                            android:id="@+id/verticalLayout2"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_marginLeft="5dp"

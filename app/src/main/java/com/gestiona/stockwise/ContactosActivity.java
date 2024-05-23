@@ -54,7 +54,7 @@ public class ContactosActivity extends AppCompatActivity {
             }
         });
 
-/*
+
         QR.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,11 +68,11 @@ public class ContactosActivity extends AppCompatActivity {
                 Intent sendIntent = new Intent();
                 sendIntent.setAction(Intent.ACTION_SEND);
 //                sendIntent.setPackage("com.whatsapp");
-                sendIntent.putExtra(Intent.EXTRA_TEXT, "Descarga GESTY a través de este link: \n\n https://play.google.com/store/apps/details?id=com.mariomunozmyaplication.gestionatunegocio");
+                sendIntent.putExtra(Intent.EXTRA_TEXT, "Descarga STOCKWISE a través de este link: \n\n https://play.google.com/store/apps?hl=es_419&gl=US");
                 sendIntent.setType("text/plain");
                 startActivity(sendIntent);
             }
-        });*/
+        });
 
 
         //CARGAR IMAGEN DESARROLLADOR David
@@ -93,7 +93,7 @@ public class ContactosActivity extends AppCompatActivity {
 
 
         image = new ImageView(this);
-        image.setImageResource(R.drawable.linkgesty);
+        image.setImageResource(R.drawable.linksw);
 
     }
 
@@ -128,7 +128,7 @@ public class ContactosActivity extends AppCompatActivity {
         return true;
     }
 
-/*
+
     public void cargarQR(ContactosActivity contactos) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Escanea el código QR");//TITULO
@@ -147,6 +147,6 @@ public class ContactosActivity extends AppCompatActivity {
         builder.create().show();
 
     }
-*/
+
 
 }
