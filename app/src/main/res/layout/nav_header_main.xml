@@ -19,7 +19,7 @@
         android:layout_height="80dp"
         android:contentDescription="TODO"
         android:scaleType="center"
-        app:srcCompat="@mipmap/iconogestyc_foreground" />
+        app:srcCompat="@mipmap/ic_launcher" />
 
     <!-- TextView nombre empresa -->
     <TextView

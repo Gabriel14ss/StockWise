@@ -20,7 +20,7 @@
         android:layout_height="155dp"
         android:layout_marginTop="148dp"
         android:layout_marginEnd="132dp"
-        android:src="@drawable/logo2"
+        android:src="@drawable/logosw2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
     </ImageView>

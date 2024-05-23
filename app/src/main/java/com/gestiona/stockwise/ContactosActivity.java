@@ -54,7 +54,7 @@ public class ContactosActivity extends AppCompatActivity {
             }
         });
 
-
+/*
         QR.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -72,7 +72,7 @@ public class ContactosActivity extends AppCompatActivity {
                 sendIntent.setType("text/plain");
                 startActivity(sendIntent);
             }
-        });
+        });*/
 
 
         //CARGAR IMAGEN DESARROLLADOR David
@@ -128,7 +128,7 @@ public class ContactosActivity extends AppCompatActivity {
         return true;
     }
 
-
+/*
     public void cargarQR(ContactosActivity contactos) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Escanea el código QR");//TITULO
@@ -147,6 +147,6 @@ public class ContactosActivity extends AppCompatActivity {
         builder.create().show();
 
     }
-
+*/
 
 }
